@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="recommends.length">
+    <div v-if="recommends.length" class="slider-wrapper">
       <slider>
         <div v-for="item in recommends" :key="item.id">
           <a :href="item.linkUrl">
@@ -32,6 +32,7 @@ export default {
   methods: {
     _getRecommend () {
       getRecommend().then((res) => {
+        console.log(res.data.slider.length)
         if (res.code === ERR_OK) {
           this.recommends = res.data.slider
         }
@@ -42,4 +43,6 @@ export default {
 </script>
 
 <style scoped lang='stylus' rel='stylessheet/stylus'>
+.slider-wrapper
+  position: relative;
 </style>
