@@ -2,7 +2,11 @@
   <div id="app">
     <m-header></m-header>
     <tab></tab>
-    <router-view></router-view>
+
+    <!-- keep-alive让router-view中的dom保存在内存中，不需要重复加载 -->
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
@@ -18,5 +22,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus" rel="stylessheet/stylus">
-</style>
+<style scoped lang="stylus" rel="stylessheet/stylus"></style>
